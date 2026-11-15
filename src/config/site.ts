@@ -18,7 +18,7 @@ export const siteConfig = defineSiteConfig({
    * - 可选值：任意非空字符串。
    * - 注意：修改后所有页面的标题后缀会同步变化。
    */
-  title: 'Daybook',
+  title: '思考の素振り',
 
   /**
    * 站点副标题（可选）。
@@ -26,7 +26,7 @@ export const siteConfig = defineSiteConfig({
    * - 用途：首页等页面在大标题下方的短句；也为 `home.subtitle` 缺省时的回退值。
    * - 可选值：任意字符串；默认 `''`。
    */
-  subtitle: '写点日记，也写点长文。',
+  subtitle: '日記の練習中',
 
   /**
    * 站点公开 URL（必填）。
@@ -43,7 +43,7 @@ export const siteConfig = defineSiteConfig({
    * - 用途：RSS/OG 作者信息、版权声明的缺省作者（`copyright.author`）。
    * - 可选值：任意非空字符串。
    */
-  author: 'kissablecho',
+  author: '　',
 
   /**
    * 作者头像（可选）。
@@ -66,7 +66,7 @@ export const siteConfig = defineSiteConfig({
    *   也不生成 `/[lang]` 路由；切换语言需要修改这里后重新构建。
    * - 范围：正文、站点标题/描述、`src/content/spec/about.mdx`、`links.ts` 与分类/标签名称属于内容，不会被自动翻译。
    */
-  lang: 'zh_CN',
+  lang: 'ja',
 
   /**
    * 站点长描述（可选）。
@@ -75,7 +75,7 @@ export const siteConfig = defineSiteConfig({
    * - 可选值：任意字符串；默认 `''`。
    * - 注意：建议控制在 120 字以内，避免搜索结果被截断。
    */
-  description: 'Daybook：一个基于 Astro 构建的静态博客，以日记为主、技术文章为辅。',
+  description: '日記にならない文章の練習',
 
   /**
    * SEO 关键词（可选）。
@@ -83,7 +83,7 @@ export const siteConfig = defineSiteConfig({
    * - 用途：写入 `<meta name="keywords">`，对主流搜索引擎权重有限，仅作补充。
    * - 可选值：`string[]`；默认 `[]`。
    */
-  keywords: ['日记', '博客', 'Astro', '前端', '碎碎念', 'Daybook'],
+  // keywords: ['日记', '博客', 'Astro', '前端', '碎碎念', 'Daybook'],
 
   /**
    * IANA 时区（可选）。
@@ -92,7 +92,7 @@ export const siteConfig = defineSiteConfig({
    * - 可选值：合法 IANA 时区名，如 `'Asia/Shanghai'`、`'UTC'`；默认 `'Asia/Shanghai'`。
    * - 注意：与构建机器的本地时区无关；非法值会直接报错。
    */
-  timezone: 'Asia/Shanghai',
+  timezone: 'Asia/Tokyo',
 
   /**
    * 建站年份（可选）。
@@ -121,11 +121,11 @@ export const siteConfig = defineSiteConfig({
    * - 标题：`title` 只控制首页大标题；站内「日记」类内容的称呼见 `labels.diary`。
    * - `showTitles: false` 只关闭首页日记条目的标题，详情/归档/RSS 仍有自己的标题回退。
    */
-  //   home: {
-  //     title: '日记',
-  //     subtitle: '一篇一篇，日子就有了形状。',
-  //     showTitles: true,
-  //   },
+     home: {
+       title: '散文',
+       subtitle: '',
+       showTitles: false,
+     },
 
   // 站内内容称呼 `labels.diary` 省略时按 `lang` 使用内置值（当前 `zh_CN` 为「日记」）。
   //   labels: {
@@ -141,20 +141,20 @@ export const siteConfig = defineSiteConfig({
    * - 复用：移动端底部导航会按 `href` 取这里的标题；命中分组子项时显示分组名。
    *   `bottomNav.items[].title` 显式配置时优先于这里的推导。
    */
-  //   nav: [
-  //     { title: '日记', link: '/' },
+     nav: [
+       { title: '日記', link: '/' },
   //     {
   //       title: '文章',
   //       items: [
-  //         { title: '全部文章', link: '/posts' },
-  //         { title: '分类', link: '/categories' },
-  //         { title: '标签', link: '/tags' },
-  //         { title: '归档', link: '/archives' },
+  //         { title: '全部', link: '/posts' },
+  //         { title: 'カテゴリ', link: '/categories' },
+  //         { title: 'タグ', link: '/tags' },
+  //         { title: 'アーカイブ', link: '/archives' },
   //       ],
   //     },
   //     { title: '友链', link: '/friends' },
-  //     { title: '关于', link: '/about' },
-  //   ],
+       { title: 'ブログについて', link: '/about' },
+     ],
 
   /**
    * 页脚导航（可选）。
@@ -163,10 +163,10 @@ export const siteConfig = defineSiteConfig({
    * - 默认：按 `lang` 使用内置「归档 / 友链」；显式配置后不会被翻译。
    * - 注意：页脚不再自动追加 RSS；需要时手动加入 `{ title: 'RSS', link: '/feed.xml' }`。
    */
-  //   footerNav: [
-  //     { title: '归档', link: '/archives' },
+     footerNav: [
+       { title: 'アーカイブ', link: '/archives' },
   //     { title: '友链', link: '/friends' },
-  //   ],
+     ],
 
   /**
    * 移动端底部导航（可选）。
@@ -178,15 +178,15 @@ export const siteConfig = defineSiteConfig({
    * - 显式配置 `items` 会整体替换默认四项，而不是追加。
    * - 注意：内部链接规则与 `nav` 相同；外链会新窗口打开。
    */
-  // bottomNav: {
-  //   enabled: true,
-  //   items: [
-  //     { link: '/', title: '日记', icon: 'i-book' },
+   bottomNav: {
+     enabled: true,
+     items: [
+       { link: '/', title: '日記', icon: 'i-book' },
   //     { link: '/posts', title: '文章', icon: 'i-file' },
   //     { link: '/friends', title: '友链', icon: 'i-link' },
-  //     { link: '/about', title: '关于', icon: 'i-user' },
-  //   ],
-  // },
+       { link: '/about', title: 'ブログについて', icon: 'i-user' },
+     ],
+   },
 
   /**
    * 分页数量（可选）。

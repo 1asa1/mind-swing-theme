@@ -47,8 +47,8 @@
 }
 
 :lang(ja) {
-  --font-sans: "Gen Jyuu Gothic P Regular", "Zen Maru Gothic", system-ui, sans-serif;
-  --font-bold: "Gen Jyuu Gothic P Bold", system-ui, sans-serif;
+  --font-sans: "Zen Maru Gothic", system-ui, sans-serif;
+  --font-bold: "Zen Maru Gothic", system-ui, sans-serif;
 }
 
 .dark {
@@ -363,7 +363,7 @@ ul, ol { padding: 0; }
   border-bottom: 2px solid transparent;
   background: none;
   font-size: 15px;
-  letter-spacing: .08em;
+  /* letter-spacing: .08em; */
   color: hsl(var(--muted-foreground));
   text-decoration: none;
   cursor: pointer;
@@ -1716,7 +1716,7 @@ html[data-demo="empty"] .a-pager--feed { display: none; }
   margin-top: 14px;
   font-family: var(--font-bold);
   font-weight: 700;
-  font-size: clamp(30px, 4vw, 42px);
+  font-size: 21px;
   line-height: 1.3;
   letter-spacing: .012em;
   color: hsl(var(--card-foreground));
@@ -3202,7 +3202,7 @@ html.a-no-scroll { overflow: hidden; }
 
   /* 详情 */
   .a-detail { padding-top: 18px; }
-  .a-article h1 { font-size: 29px; margin-top: 12px; }
+  .a-article h1 { font-size: 21px; margin-top: 12px; }
   .a-meta { font-size: 11.5px; }
   .a-prose { font-size: 16.5px; line-height: 1.85; margin-top: 24px; padding-top: 24px; }
   .a-prose h2 { font-size: 21px; margin-top: 2em; }
@@ -3292,7 +3292,7 @@ html.dark .a-fold-toggle .a-chev { color: hsl(var(--rose)); }
   gap: 5px;
   font-size: 11px;
   font-weight: 400;
-  letter-spacing: .14em;
+  /* letter-spacing: .14em; */
   color: hsl(var(--rose));
 }
 .a-pin { display: inline-flex; align-items: center; gap: 5px; margin-bottom: 4px; }

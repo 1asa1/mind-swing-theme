@@ -24,8 +24,8 @@ const messages = {
   'common.skipToContent': '本文へスキップ',
   'common.draft': '下書き',
   'common.comments': 'コメント',
-  'common.expand': '全文を読む',
-  'common.collapse': '閉じる',
+  'common.expand': 'つづきを開く',
+  'common.collapse': 'たたむ',
   'common.untitled': '無題',
 
   'content.post': '記事',
@@ -40,7 +40,7 @@ const messages = {
   'content.pinnedPost': '固定された記事',
   'content.pinnedDaily': '固定された{diary}',
   'content.unlock': 'ロックを解除して読む',
-  'content.view': '原文を読む',
+  'content.view': '記事ページ',
 
   'nav.search': '検索',
   'nav.main': 'メインナビゲーション',

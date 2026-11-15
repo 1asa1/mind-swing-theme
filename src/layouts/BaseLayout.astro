@@ -18,10 +18,7 @@ import 'katex/dist/katex.min.css';
 // 使用 ?url 把 CSS 当成显式资源导入
 const fontCssUrls =
   siteConfig.lang === 'ja'
-    ? [
-        (await import('../assets/fonts/GenJyuuGothic-P-Regular/result.css?url')).default,
-        (await import('../assets/fonts/GenJyuuGothic-P-Bold/result.css?url')).default,
-      ]
+    ? ['https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700&display=swap']
     : [
         (await import('../assets/fonts/ChillRoundFRegular/result.css?url')).default,
         (await import('../assets/fonts/ChillRoundFBold/result.css?url')).default,
@@ -94,6 +91,12 @@ const clientI18n = getClientMessages(siteConfig.lang);
     <meta name="color-scheme" content="light dark" />
     <meta name="theme-color" content="#fdfbfb" media="(prefers-color-scheme: light)" />
     <meta name="theme-color" content="#1d1a27" media="(prefers-color-scheme: dark)" />
+    {siteConfig.lang === 'ja' && (
+      <>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+      </>
+    )}
     {fontCssUrls.map((href) => (
       <link rel="stylesheet" href={href} />
     ))}

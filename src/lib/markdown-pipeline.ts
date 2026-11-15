@@ -3,6 +3,7 @@ import type { MarkdownHeading } from 'astro';
 import rehypeAutolinkHeadings from 'rehype-autolink-headings';
 import rehypeKatex from 'rehype-katex';
 import rehypeSlug from 'rehype-slug';
+import remarkBreaks from 'remark-breaks';
 import remarkMath from 'remark-math';
 
 import { isExternalUrl } from './site';
@@ -301,7 +302,7 @@ export function rehypeExternalLinks() {
   };
 }
 
-export const remarkPlugins: RemarkPlugins = [remarkMath];
+export const remarkPlugins: RemarkPlugins = [remarkMath, remarkBreaks];
 
 export const rehypePlugins: RehypePlugins = [
   [rehypeSlug, { prefix: 'h-' }],
