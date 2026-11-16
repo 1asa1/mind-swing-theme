@@ -679,16 +679,34 @@ ul, ol { padding: 0; }
 }
 .a-entry-text {
   margin-top: 6px;
-  font-size: 15.5px;
+  font-size: 14px;
   line-height: var(--entry-lh);
   color: hsl(var(--foreground));
   overflow-wrap: break-word;
 }
-.a-entry-text p + p { margin-top: .85em; }
+.a-entry-text p + p { margin-top: 2em; }
 /* 列表块与相邻段落之间留出与段落相同的行距；嵌套层级不再额外加空隙，
    与详情页 .a-prose > * + * 的结构保持一致。 */
 .a-entry-text > * + :is(ul, ol),
-.a-entry-text > :is(ul, ol) + p { margin-top: .85em; }
+.a-entry-text > :is(ul, ol) + p { margin-top: 2em; }
+
+.a-entry-text blockquote {
+  margin: 1.4em 0;
+  padding: 10px 16px;
+  border-left: 3px solid hsl(var(--pink-decor) / .85);
+  border-radius: 0 6px 6px 0;
+  background: hsl(var(--accent) / .55);
+  color: hsl(var(--muted-foreground));
+  quotes: none;
+}
+.a-entry-text blockquote:first-child { margin-top: 0; }
+.a-entry-text blockquote:last-child { margin-bottom: 0; }
+.a-entry-text blockquote > * + * { margin-top: .75em; }
+.a-entry-text blockquote :not(pre) > code { background: hsl(var(--background) / .75); }
+.dark .a-entry-text blockquote {
+  border-left-color: hsl(var(--pink-decor) / .75);
+  background: hsl(var(--accent) / .65);
+}
 
 /* 折叠到 8 行；高度由脚本按整行切齐 */
 .a-foldable.is-collapsed { overflow: hidden; }
