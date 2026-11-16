@@ -690,7 +690,7 @@ ul, ol { padding: 0; }
 .a-entry-text > * + :is(ul, ol),
 .a-entry-text > :is(ul, ol) + p { margin-top: 2em; }
 
-.a-entry-text blockquote {
+:is(.a-prose, .a-entry-text) blockquote {
   margin: 1.4em 0;
   padding: 10px 16px;
   border-left: 3px solid hsl(var(--pink-decor) / .85);
@@ -699,11 +699,11 @@ ul, ol { padding: 0; }
   color: hsl(var(--muted-foreground));
   quotes: none;
 }
-.a-entry-text blockquote:first-child { margin-top: 0; }
-.a-entry-text blockquote:last-child { margin-bottom: 0; }
-.a-entry-text blockquote > * + * { margin-top: .75em; }
-.a-entry-text blockquote :not(pre) > code { background: hsl(var(--background) / .75); }
-.dark .a-entry-text blockquote {
+:is(.a-prose, .a-entry-text) blockquote:first-child { margin-top: 0; }
+:is(.a-prose, .a-entry-text) blockquote:last-child { margin-bottom: 0; }
+:is(.a-prose, .a-entry-text) blockquote > * + * { margin-top: .75em; }
+:is(.a-prose, .a-entry-text) blockquote :not(pre) > code { background: hsl(var(--background) / .75); }
+.dark :is(.a-prose, .a-entry-text) blockquote {
   border-left-color: hsl(var(--pink-decor) / .75);
   background: hsl(var(--accent) / .65);
 }
@@ -1775,17 +1775,18 @@ html[data-demo="empty"] .a-pager--feed { display: none; }
 
 /* 正文 */
 .a-prose {
-  max-width: 34em;              /* 17px × 34 = 578px ≈ 34 字/行 */
+  max-width: 34em;
   margin-top: 30px;
   padding-top: 30px;
   border-top: 1px solid hsl(var(--border));
-  font-size: 17px;
+  font-size: 14px;
   line-height: 1.9;
   color: hsl(var(--foreground));
 }
 .a-prose > * + * { margin-top: 1.15em; }
 .a-prose > h2:first-child { margin-top: .4em; }
 .a-prose p { margin: 0; }
+.a-prose p + p { margin-top: 2em; }
 .a-prose h2 {
   margin-top: 2.4em;
   margin-bottom: .8em;
@@ -1832,13 +1833,6 @@ html[data-demo="empty"] .a-pager--feed { display: none; }
   font-weight: 700;
   color: hsl(var(--card-foreground));
 }
-.a-prose blockquote {
-  margin: 1.6em 0;
-  padding: 2px 0 2px 20px;
-  border-left: 1px solid hsl(var(--border));
-  color: hsl(var(--muted-foreground));
-}
-.a-prose blockquote p { font-size: 16.5px; line-height: 1.9; }
 :is(.a-prose, .a-entry-text) hr {
   height: 1px;
   border: 0;
@@ -3230,7 +3224,7 @@ html.a-no-scroll { overflow: hidden; }
   .a-detail { padding-top: 18px; }
   .a-article h1 { font-size: 21px; margin-top: 12px; }
   .a-meta { font-size: 11.5px; }
-  .a-prose { font-size: 16.5px; line-height: 1.85; margin-top: 24px; padding-top: 24px; }
+  .a-prose { font-size: 15px; line-height: 1.9; margin-top: 24px; padding-top: 24px; }
   .a-prose h2 { font-size: 21px; margin-top: 2em; }
   .a-prose pre { padding: 14px 14px; font-size: 12px; border-radius: 3px; }
   .a-figure .a-frame { padding: 10px; }
@@ -3451,39 +3445,43 @@ html.dark .a-fold-toggle .a-chev { color: hsl(var(--rose)); }
 :is(.a-prose, .a-entry-text) u { text-decoration-color: hsl(var(--rose) / .55); text-underline-offset: .18em; }
 :is(.a-prose, .a-entry-text) sub,
 :is(.a-prose, .a-entry-text) sup { font-size: .72em; line-height: 0; }
-.a-prose table {
+:is(.a-prose, .a-entry-text) table {
   width: 100%;
   margin: 1.6em 0;
   border-collapse: collapse;
   font-size: 15px;
   line-height: 1.6;
 }
-.a-prose th,
-.a-prose td {
+:is(.a-prose, .a-entry-text) th,
+:is(.a-prose, .a-entry-text) td {
   padding: 9px 12px;
   border-bottom: 1px solid hsl(var(--border));
   text-align: left;
   vertical-align: top;
 }
-.a-prose th {
+:is(.a-prose, .a-entry-text) th {
   font-family: var(--font-bold);
   font-size: 12.5px;
   font-weight: 700;
   letter-spacing: .06em;
   color: hsl(var(--muted-foreground));
 }
-.a-prose td.is-center, .a-prose th.is-center { text-align: center; }
-.a-prose td.is-right, .a-prose th.is-right { text-align: right; }
+:is(.a-prose, .a-entry-text) td.is-center,
+:is(.a-prose, .a-entry-text) th.is-center { text-align: center; }
+:is(.a-prose, .a-entry-text) td.is-right,
+:is(.a-prose, .a-entry-text) th.is-right { text-align: right; }
 /* GFM 表格用 align="" 属性表达列对齐，这里补齐原型 is-center / is-right 的效果。 */
-.a-prose td[align="center"], .a-prose th[align="center"] { text-align: center; }
-.a-prose td[align="right"], .a-prose th[align="right"] { text-align: right; }
+:is(.a-prose, .a-entry-text) td[align="center"],
+:is(.a-prose, .a-entry-text) th[align="center"] { text-align: center; }
+:is(.a-prose, .a-entry-text) td[align="right"],
+:is(.a-prose, .a-entry-text) th[align="right"] { text-align: right; }
 /* 宽表格在纸面上横向滚动：由 rehypeArticleProse 包一层 .a-table-wrap。 */
-.a-prose .a-table-wrap {
+:is(.a-prose, .a-entry-text) .a-table-wrap {
   margin: 1.6em 0;
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
 }
-.a-prose .a-table-wrap table { margin: 0; }
+:is(.a-prose, .a-entry-text) .a-table-wrap table { margin: 0; }
 /* 任务列表：复选框悬挂在左侧，文字对齐无序列表的内容边；嵌套层沿用 ul 的 1.4em 缩进。 */
 :is(.a-prose, .a-entry-text) .a-task-list { list-style: none; }
 :is(.a-prose, .a-entry-text) .a-task-list input[type="checkbox"] {
@@ -3633,9 +3631,11 @@ html.dark .a-fold-toggle .a-chev { color: hsl(var(--rose)); }
 .a-math-sqrt { display: inline-flex; align-items: stretch; margin-left: .1em; }
 .a-sqrt-sign { font-size: 1.5em; line-height: 1; }
 .a-sqrt-body { border-top: 1px solid currentColor; padding: .08em .16em 0; }
-.a-prose .a-md-typo-table { table-layout: fixed; }
-.a-prose .a-md-typo-table th:nth-child(1), .a-prose .a-md-typo-table td:nth-child(1) { width: 20%; }
-.a-prose .a-md-typo-table th:nth-child(2), .a-prose .a-md-typo-table td:nth-child(2) { width: 26%; }
+:is(.a-prose, .a-entry-text) .a-md-typo-table { table-layout: fixed; }
+:is(.a-prose, .a-entry-text) .a-md-typo-table th:nth-child(1),
+:is(.a-prose, .a-entry-text) .a-md-typo-table td:nth-child(1) { width: 20%; }
+:is(.a-prose, .a-entry-text) .a-md-typo-table th:nth-child(2),
+:is(.a-prose, .a-entry-text) .a-md-typo-table td:nth-child(2) { width: 26%; }
 .a-prose .a-md-note {
   font-size: 15px;
   line-height: 1.75;
@@ -3644,9 +3644,9 @@ html.dark .a-fold-toggle .a-chev { color: hsl(var(--rose)); }
   border-left: 1px solid hsl(var(--rose) / .4);
 }
 .a-prose .a-md-dd { color: hsl(var(--muted-foreground)); font-size: .92em; }
-.a-prose li > blockquote,
+:is(.a-prose, .a-entry-text) li > blockquote,
 .a-prose li > pre,
-.a-prose li > table { margin-top: .7em; margin-bottom: .3em; }
+:is(.a-prose, .a-entry-text) li > table { margin-top: .7em; margin-bottom: .3em; }
 .a-prose pre .tok-c { color: hsl(var(--muted-foreground)); font-style: italic; }
 .a-prose pre .tok-n { color: hsl(var(--rose)); }
 .a-prose pre .tok-v { color: hsl(var(--foreground)); }
