@@ -29,7 +29,7 @@
   --radius: 12px;
   --shadow-card: 0 5px 15px rgba(0, 0, 0, .10);
   --page-bg: linear-gradient(to top, #EBEDEE 0, #FDFBFB 768px);
-  --font-sans: "寒蝉全圆体", "霞鹜文楷", "Zen Maru Gothic", system-ui, sans-serif;
+  --font-sans: "寒蝉全圆体", "霞鹜文楷", "Kiwi Maru", system-ui, sans-serif;
   --font-bold: "寒蝉全圆体 Bold", "寒蝉全圆体", "霞鹜文楷", system-ui, sans-serif;
   --font-mono: ui-monospace, "SFMono-Regular", Menlo, Consolas, "Liberation Mono", monospace;
 
@@ -47,8 +47,8 @@
 }
 
 :lang(ja) {
-  --font-sans: "Zen Maru Gothic", system-ui, sans-serif;
-  --font-bold: "Zen Maru Gothic", system-ui, sans-serif;
+  --font-sans: "Kiwi Maru", system-ui, sans-serif;
+  --font-bold: "Kiwi Maru", system-ui, sans-serif;
 }
 
 .dark {
